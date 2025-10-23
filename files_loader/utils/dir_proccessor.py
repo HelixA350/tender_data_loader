@@ -61,9 +61,18 @@ def get_all_files_recursive(directory: str) -> List[str]:
             file_list.append(relative_path.replace(os.sep, '\\'))
     return file_list
 
+def save_root_to_env(root: str) -> None:
+    if root:
+        os.environ['ROOT'] = root
+    else:
+        os.environ['ROOT'] = ''
+    return None
 
 def extract_and_list_files(dir: str) -> List[str]:
     """Распаковывает все архивы в директории и возвращает список всех файлов."""
+    # сохраняем корневую директорию для возможности открытия файлов
+    save_root_to_env(dir)
+    
     # Создаем временную директорию для работы
     with tempfile.TemporaryDirectory() as temp_dir:
         # Копируем содержимое исходной директории во временную
