@@ -37,7 +37,7 @@ class Loader:
             load_files: Загружает файлы с использованием выбранного процессора.
         """
         file_paths = extract_and_list_files(self.dir_path)
-        return file_paths
-        # processing_data = choose_processor(file_paths)
+        processing_data = choose_processor(file_paths)
+        return processing_data
 
         # return load_files(processing_data, self.keep_layout)
