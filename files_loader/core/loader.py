@@ -11,7 +11,7 @@ class Loader:
         keep_layout (bool): Флаг, указывающий, сохранять ли исходный макет документа.
     """
 
-    def __init__(self, dir_path: str, keep_layout: bool):
+    def __init__(self, dir_path: str, keep_layout: bool = True):
         """
         Инициализация экземпляра класса Loader.
 
@@ -37,6 +37,7 @@ class Loader:
             load_files: Загружает файлы с использованием выбранного процессора.
         """
         file_paths = extract_and_list_files(self.dir_path)
-        processing_data = choose_processor(file_paths)
+        return file_paths
+        # processing_data = choose_processor(file_paths)
 
-        return load_files(processing_data, self.keep_layout)
+        # return load_files(processing_data, self.keep_layout)
