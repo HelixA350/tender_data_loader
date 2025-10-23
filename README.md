@@ -63,7 +63,7 @@ files_loader/
 ### Базовый пример
 
 ```python
-from files_loader.core.loader import Loader
+from files_loader import Loader
 
 # Инициализация загрузчика
 path = r'C:\Users\UserName\Downloads\files\files\73_2'
