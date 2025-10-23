@@ -33,7 +33,4 @@ def load_word(file_path: str, keep_layout: bool) -> List[Document]:
     file_path = modify_dir(file_path)
     loader = _create_loader(file_path, keep_layout)
     documents = _load_documents(loader)
-
-
-    print(len(documents))
     return documents

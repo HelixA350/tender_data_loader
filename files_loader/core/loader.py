@@ -1,6 +1,6 @@
 from typing import Dict, List
 from langchain_core.documents import Document
-from ..utils import extract_and_list_files, load_files, choose_processor
+from ..utils import extract_and_list_files, load_files, choose_processor, cleanup
 
 class Loader:
     """
@@ -38,4 +38,5 @@ class Loader:
         """
         file_paths = extract_and_list_files(self.dir_path)
         processing_data = choose_processor(file_paths)
-        return load_files(processing_data, self.keep_layout)
+        processed_result = load_files(processing_data, self.keep_layout)
+        return cleanup(processed_result)
