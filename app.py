@@ -6,4 +6,4 @@ if __name__ == '__main__':
     loader = Loader(path)
     res = loader.load_from_directory()
 
-    pprint(res)
+    print(res)

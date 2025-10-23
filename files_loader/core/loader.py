@@ -38,6 +38,4 @@ class Loader:
         """
         file_paths = extract_and_list_files(self.dir_path)
         processing_data = choose_processor(file_paths)
-        return processing_data
-
-        # return load_files(processing_data, self.keep_layout)
+        return load_files(processing_data, self.keep_layout)
