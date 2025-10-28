@@ -11,6 +11,9 @@ def load_files(data: Dict[str, Callable[[str, bool], List[Document]]], keep_layo
     """Загружает файлы, используя предоставленные функции загрузки."""
     results = {}
     for file_path, loader_func in data.items():
-        documents = _load_single_file(file_path, loader_func, keep_layout)
-        results[file_path] = documents
+        try:
+            documents = _load_single_file(file_path, loader_func, keep_layout)
+            results[file_path] = documents
+        except:
+            pass
     return results

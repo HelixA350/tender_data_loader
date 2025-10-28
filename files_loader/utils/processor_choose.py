@@ -1,6 +1,6 @@
 from typing import List, Callable, Dict
 import os
-from ..loaders import load_excel, load_pdf, load_word, load_undefined
+from ..loaders import load_excel, load_pdf, load_word, load_undefined, load_txt
 from langchain_core.documents import Document
 
 def get_file_extension(file_path: str) -> str:
@@ -24,6 +24,10 @@ def get_processor_by_extension(extension: str) -> Callable[[str, bool], List[Doc
         'xlsx': load_excel,
         'xlsm': load_excel,
         'ods': load_excel,
+        # Текстовые файлы
+        'txt': load_txt,
+        'rtf': load_txt,
+        'md': load_txt,
         # Другие текстовые/документные форматы (по умолчанию — undefined)
     }
     return extension_map.get(extension, load_undefined)

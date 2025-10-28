@@ -23,6 +23,7 @@ def extract_archive(archive_path: str, extract_to: str) -> None:
         with zipfile.ZipFile(archive_path, 'r') as zip_ref:
             zip_ref.extractall(extract_to)
     elif archive_path.lower().endswith('.rar'):
+        #TODO:  сделать коректную распаковку rar
         with rarfile.RarFile(archive_path, 'r') as rar_ref:
             rar_ref.extractall(extract_to)
     elif archive_path.lower().endswith('.7z'):
@@ -42,7 +43,10 @@ def process_directory_recursive(directory: str) -> None:
                 os.makedirs(extract_dir, exist_ok=True)
                 
                 # Извлекаем архив
-                extract_archive(file_path, extract_dir)
+                try:
+                    extract_archive(file_path, extract_dir)
+                except:
+                    pass
                 
                 # Удаляем файл архива
                 os.remove(file_path)
